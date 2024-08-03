@@ -33,10 +33,38 @@ for (var i = 0; i < gameGrid.length; i++) {
   grid.appendChild(card);
 }
 
+var count = 0;
+var firstGuess = '';
+var secondGuess = '';
+var previousTarget = null;
+
+var match = function(){
+  var selected = document.querySelectorAll('.selected');
+  for (var i = 0; i < selected.length; i++){
+    selected[i].classList.add('match');
+  }
+}
+
 grid.addEventListener('click', function(e){
   var clicked = e.target;
-  if(clicked.nodeName === 'SECTION'){
+  if(clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.containe('match') || clicked.parentNode.classList.containe('selected')){
     return;
   }
-  clicked.classList.add('selected');
+
+  if(count<2){
+    count++;
+    if(count === 1){
+      firstGuess = clicked.dataset.name;
+      clicked.classList.add('selected');
+    } else{
+      secondGuess = clicked.dataset.name;
+      clicked.classList.add('selected');
+    }
+    if (firstGuess !== '' & secondGuess !== ''){
+      if(firstGuess === secondGuess){
+        match();
+      }
+    }
+    previousTarget = clicked;
+  }
 })
