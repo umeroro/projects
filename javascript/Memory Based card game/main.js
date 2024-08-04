@@ -64,8 +64,16 @@ for (i = 0; i < gameGrid.length; i++) {
   var card = document.createElement("div");
   card.classList.add("card");
   card.dataset.name = gameGrid[i].name;
-  card.style.backgroundImage = `url(${gameGrid[i].img})`;
+  
+  var front = document.createElement("div");
+  front.classList.add('front');
+  var back = document.createElement("div");
+  back.classList.add('back');
+  back.style.backgroundImage = `url(${gameGrid[i].img})`;
+
   grid.appendChild(card);
+  card.appendChild(front);
+  card.appendChild(back);
 }
 
 var firstGuess = "";
@@ -106,11 +114,11 @@ grid.addEventListener("click", function (event) {
   if (count < 2) {
     count++;
     if (count === 1) {
-      firstGuess = clicked.dataset.name;
-      clicked.classList.add("selected");
+      firstGuess = clicked.parentNode.dataset.name;
+      clicked.parentNode.classList.add("selected");
     } else {
-      secondGuess = clicked.dataset.name;
-      clicked.classList.add("selected");
+      secondGuess = clicked.parentNode.dataset.name;
+      clicked.parentNode.classList.add("selected");
     }
     if (firstGuess !== "" && secondGuess !== "") {
       if (firstGuess === secondGuess) {
