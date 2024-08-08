@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change On Button</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      h1 {
+        color: lightseagreen;
+      }
+      button {
+        padding: 14px 28px;
+        border-radius: 25px;
+        background-color: transparent;
+        border: 1px solid;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Background Colour</h1>
+    <button>Change Background</button>
+
+    <script>
+      var h1 = document.querySelector("h1");
+      var button = document.querySelector("button");
+      var count = 0;
+      button.addEventListener("click", function () {
+        if (count === 0) {
+          count++;
+          document.body.style.background = "Black";
+          button.style.color = "white";
+          button.style.border = "1px solid white";
+          h1.style.color = "orange";
+        } else if (count === 1) {
+          count--;
+          document.body.style.background = "white";
+          button.style.color = "black";
+          button.style.border = "1px solid black";
+          h1.style.color = "lightseagreen";
+        }
+      });
+    </script>
+  </body>
+</html>
