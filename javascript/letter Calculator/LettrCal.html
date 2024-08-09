@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Counter</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Letter Counter</h1>
+    <input type="text" id="textInput" placeholder="Write Something">
+    <p>
+        Letter Count : 0
+    </p>
+
+    <script>
+        var inputField = document.getElementById('textInput');
+        var lengthCount = 0;
+        var p = document.querySelector('p');
+        inputField.addEventListener('input',function(){
+            lengthCount = inputField.value.length;
+            p.textContent = `Letter Count : ${lengthCount}`;
+        });
+    </script>
+</body>
+</html>
