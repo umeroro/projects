@@ -1,3 +1,40 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+body {
+    
+}
 img {
-    width: 300px;
+    height: auto;
+    max-width: 100%;
+}
+
+button {
+    color: #FFF;
+    text-transform: uppercase;
+    background: #60a3bc;
+    padding: 10px;
+    /* border-radius: 50px; */
+    display: inline-block;
+    border: none;
+}
+
+blockquote {
+    border: 0.25em solid #e5e5e5;
+    font-style: italic;
+    margin: 0 0 1.5625em;
+    padding-left: 1em;
+    padding-right: 1em;
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+    content: '';
 }
